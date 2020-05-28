@@ -101,7 +101,7 @@ function posts_link_attributes() {
 }
 
 require get_template_directory() . '/inc/customizer.php';
-require get_template_directory() . '/inc/style.php';
+require get_template_directory() . '/inc/dynamic-style.php';
 require get_template_directory() . '/inc/gallery.php';
 require get_template_directory() . '/inc/details.php';
 require get_template_directory() . '/inc/gutenberg.php';
@@ -384,7 +384,7 @@ add_action('pre_get_posts','my_date_search');
 function my_date_search() {
     if (is_search()) {
         $original_query = get_search_query();
-        
+
         $months = array(1 => "Gennaio", 2 => "Febbraio", 3 => "Marzo", 4 => "Aprile", 5 => "Maggio", 6 => "Giugno", 7 => "Luglio", 8 => "Agosto", 9 => "Settembre", 10 => "Ottobre", 11 => "Novembre", 12 => "Dicembre");
 
         foreach ($months as $month => $month_name) {
@@ -398,7 +398,7 @@ function my_date_search() {
                     $d = $day[0];
             }
         }
-        
+
         if (isset($m) && isset($y)) {
             $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
             if(!isset($d)) $d = "";
